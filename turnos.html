@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservar Turno | Notaría 54 de Quito</title>
+    <meta name="description" content="Reserve su turno en línea en la Notaría 54 del Cantón Quito. Atención ágil y sin esperas.">
+    <link rel="icon" href="business_logo-Notaria-54.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">
+                <img src="business_logo-Notaria-54.jpg" alt="Logo Notaría 54 de Quito" class="logo-img">
+                <div>
+                    <span class="logo-title">Notaría 54 de Quito</span>
+                    <span class="logo-subtitle">Dr. Jorge Isaac Valarezo Guerrero</span>
+                </div>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="tramites.html" class="nav-link">Trámites y Requisitos</a>
+                <a href="turnos.html" class="nav-link" style="color: var(--color-primary);">Reservar Turno</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" style="padding: 4rem 0; text-align: center;">
+            <div class="container">
+                <span class="hero-tag">Atención sin Esperas</span>
+                <h1>Reserve su Turno en Línea</h1>
+                <p style="margin: 0 auto; max-width: 600px; color: var(--color-muted);">
+                    Complete el formulario y recibirá una confirmación. Atendemos de lunes a viernes de 08:00 a 17:00.
+                </p>
+            </div>
+        </section>
+
+        <section class="section-soft" style="padding-top: 2rem; padding-bottom: 4rem;">
+            <div class="container">
+                <div class="two-columns" style="align-items: start; gap: 3rem;">
+
+                    <!-- FORMULARIO -->
+                    <div class="card form-card">
+                        <h2 style="font-size: 1.4rem; margin-bottom: 1.5rem;">Datos del Turno</h2>
+                        
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo *</label>
+                            <input type="text" id="nombre" placeholder="Ej. Juan Pérez García" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cedula">Número de cédula *</label>
+                            <input type="text" id="cedula" placeholder="Ej. 1712345678" maxlength="10" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefono">Teléfono de contacto *</label>
+                            <input type="tel" id="telefono" placeholder="Ej. 0991234567" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tramite">Tipo de trámite *</label>
+                            <select id="tramite" required>
+                                <option value="" disabled selected>Seleccione un trámite…</option>
+                                <option value="vehiculo">Compraventa de Vehículo</option>
+                                <option value="inmueble">Compraventa de Casa / Terreno</option>
+                                <option value="poder-general">Poder General</option>
+                                <option value="poder-especial">Poder Especial</option>
+                                <option value="salida-pais">Autorización Salida del País (Menores)</option>
+                                <option value="hipoteca">Hipoteca / Cancelación</option>
+                                <option value="otro">Otro trámite</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="fecha">Fecha preferida *</label>
+                            <input type="date" id="fecha" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="hora">Hora preferida *</label>
+                            <select id="hora" required>
+                                <option value="" disabled selected>Seleccione una hora…</option>
+                                <option value="08:00">08:00 AM</option>
+                                <option value="09:00">09:00 AM</option>
+                                <option value="10:00">10:00 AM</option>
+                                <option value="11:00">11:00 AM</option>
+                                <option value="12:00">12:00 PM</option>
+                                <option value="13:00">01:00 PM</option>
+                                <option value="14:00">02:00 PM</option>
+                                <option value="15:00">03:00 PM</option>
+                                <option value="16:00">04:00 PM</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="notas">Notas adicionales (opcional)</label>
+                            <input type="text" id="notas" placeholder="Información adicional sobre su trámite…">
+                        </div>
+
+                        <button class="btn btn-primary btn-full" onclick="reservarTurno()" style="margin-top: 0.5rem;">
+                            <i class="far fa-calendar-check" style="margin-right: 8px;"></i> Confirmar Reserva
+                        </button>
+
+                        <div class="turno-message" id="turnoMsg"></div>
+                    </div>
+
+                    <!-- INFORMACIÓN LATERAL -->
+                    <div>
+                        <div class="card" style="margin-bottom: 1.5rem;">
+                            <h3><i class="fas fa-info-circle" style="color: var(--color-primary); margin-right: 8px;"></i> Importante</h3>
+                            <ul class="values-list" style="margin-top: 1rem;">
+                                <li>La reserva es tentativa y será confirmada por la notaría.</li>
+                                <li>Traiga todos los documentos requeridos el día de su cita.</li>
+                                <li>Si no puede asistir, cancele con al menos 24 horas de anticipación.</li>
+                                <li>Se atiende por orden de turno reservado.</li>
+                            </ul>
+                        </div>
+
+                        <div class="card" style="margin-bottom: 1.5rem;">
+                            <h3><i class="fas fa-phone" style="color: var(--color-primary); margin-right: 8px;"></i> Contáctenos</h3>
+                            <ul class="contact-list" style="margin-top: 1rem;">
+                                <li style="margin-bottom: 0.8rem;">
+                                    <i class="fas fa-phone" style="color: var(--color-primary); margin-right: 10px; width: 16px;"></i>
+                                    <a href="tel:+59323477021" style="color: var(--color-navy); text-decoration: none;">+593 2-347-7021</a>
+                                </li>
+                                <li style="margin-bottom: 0.8rem;">
+                                    <i class="fas fa-envelope" style="color: var(--color-primary); margin-right: 10px; width: 16px;"></i>
+                                    <a href="mailto:notaria54@notaria54quito.com" style="color: var(--color-navy); text-decoration: none; font-size: 0.9rem;">notaria54@notaria54quito.com</a>
+                                </li>
+                                <li>
+                                    <i class="fas fa-clock" style="color: var(--color-primary); margin-right: 10px; width: 16px;"></i>
+                                    <span style="color: var(--color-muted);">Lunes a Viernes: 08:00 – 17:00</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="card">
+                            <h3><i class="fas fa-map-marker-alt" style="color: var(--color-primary); margin-right: 8px;"></i> Dirección</h3>
+                            <p style="color: var(--color-muted); margin: 1rem 0 1rem;">
+                                Conjunto Gross, Av. Neptaly Godoy N9-80 y Río Chanchan, Casa 3, Carapungo, Quito.
+                            </p>
+                            <a href="https://maps.google.com/?q=Av.+Neptaly+Godoy+N9-80,+Carapungo,+Quito" target="_blank" rel="noopener" class="btn btn-outline-small" style="display: inline-block; text-decoration: none;">
+                                <i class="fas fa-external-link-alt" style="margin-right: 6px;"></i> Ver en Google Maps
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div>
+                <p style="font-weight: bold; margin-bottom: 0.3rem;">Notaría 54 de Quito</p>
+                <p style="opacity: 0.8; font-size: 0.85rem;">© 2025 Notaría 54 del Cantón Quito. Todos los derechos reservados.</p>
+            </div>
+            <a href="#" class="back-to-top">Volver arriba ↑</a>
+        </div>
+    </footer>
+
+    <script>
+        // Bloquear fechas pasadas y fines de semana en el selector de fecha
+        (function() {
+            const input = document.getElementById('fecha');
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const dd = String(today.getDate()).padStart(2, '0');
+            input.min = `${yyyy}-${mm}-${dd}`;
+        })();
+
+        function reservarTurno() {
+            const nombre  = document.getElementById('nombre').value.trim();
+            const cedula  = document.getElementById('cedula').value.trim();
+            const tel     = document.getElementById('telefono').value.trim();
+            const tramite = document.getElementById('tramite').value;
+            const fecha   = document.getElementById('fecha').value;
+            const hora    = document.getElementById('hora').value;
+            const msg     = document.getElementById('turnoMsg');
+
+            if (!nombre || !cedula || !tel || !tramite || !fecha || !hora) {
+                msg.textContent = '⚠ Por favor complete todos los campos obligatorios.';
+                msg.style.backgroundColor = '#fff3cd';
+                msg.style.color = '#856404';
+                msg.classList.add('turno-message-visible');
+                return;
+            }
+
+            // Verificar que no sea fin de semana
+            const fechaObj = new Date(fecha + 'T12:00:00');
+            const diaSemana = fechaObj.getDay();
+            if (diaSemana === 0 || diaSemana === 6) {
+                msg.textContent = '⚠ Solo atendemos de lunes a viernes. Por favor elija otro día.';
+                msg.style.backgroundColor = '#fff3cd';
+                msg.style.color = '#856404';
+                msg.classList.add('turno-message-visible');
+                return;
+            }
+
+            msg.textContent = `✓ Solicitud enviada, ${nombre}. La notaría confirmará su turno para el ${fecha} a las ${hora} a la brevedad. Revise su teléfono.`;
+            msg.style.backgroundColor = '#d4edda';
+            msg.style.color = '#155724';
+            msg.classList.add('turno-message-visible');
+        }
+    </script>
+
+</body>
+</html>
