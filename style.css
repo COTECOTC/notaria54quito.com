@@ -169,6 +169,7 @@ h1 {
   color: var(--white);
   font-weight: 700;
   letter-spacing: 0.02em;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
 
 h2 {
@@ -227,16 +228,16 @@ h3 {
   overflow: hidden;
 }
 
-/* Capa oscura sobre la foto */
+/* Capa oscura sobre la foto — más opaca para legibilidad */
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(
     105deg,
-    rgba(10, 22, 40, 0.88) 0%,
-    rgba(10, 22, 40, 0.65) 55%,
-    rgba(10, 22, 40, 0.40) 100%
+    rgba(8, 16, 30, 0.93) 0%,
+    rgba(8, 16, 30, 0.82) 55%,
+    rgba(8, 16, 30, 0.65) 100%
   );
   z-index: 1;
 }
@@ -268,21 +269,24 @@ h3 {
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: var(--gold-light);
-  border: 1px solid rgba(201, 168, 76, 0.5);
+  border: 1px solid var(--gold);
+  background-color: rgba(201, 168, 76, 0.15);
   padding: 0.35rem 1rem;
   border-radius: 2px;
   margin-bottom: 1.2rem;
   font-family: var(--font-body);
-  font-weight: 500;
+  font-weight: 600;
+  text-shadow: none;
 }
 
 .hero-text p {
   font-family: var(--font-serif);
   margin: 0 0 2.5rem;
-  color: rgba(255,255,255,0.82);
+  color: rgba(255, 255, 255, 0.96);
   max-width: 480px;
   font-size: 1.1rem;
   line-height: 1.8;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
 }
 
 .hero-actions {
@@ -311,7 +315,7 @@ h3 {
   position: absolute;
   bottom: -28px;
   right: 0;
-  background-color: var(--navy-mid);
+  background-color: rgba(13, 27, 46, 0.98);
   border-radius: var(--radius);
   padding: 1.1rem 1.4rem;
   box-shadow: var(--shadow-dark);
@@ -331,7 +335,7 @@ h3 {
 
 .mini-card-line {
   margin: 0;
-  color: rgba(255,255,255,0.65);
+  color: rgba(255,255,255,0.90);
   font-size: 0.8rem;
 }
 
